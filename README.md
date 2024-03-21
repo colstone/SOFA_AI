@@ -2,7 +2,7 @@
 
 ---
 
-[English](https://github.com/colstone/SOFA_AI/README_EN.md) | 简体中文
+[English](https://github.com/colstone/SOFA_AI/blob/main/README_EN.md) | 简体中文
 
 ---
 
