@@ -29,7 +29,7 @@ __此项目已有缝合[openai/whisper](https://github.com/openai/whisper)项目
   conda activate SOFA_AI
   ```
 
-- 访问[Pytorch官网](www.pytorch.org)，下载适用于你的设备的torch。
+- 访问[Pytorch官网](http://www.pytorch.org)，下载适用于你的设备的torch。
 
 - （可选择，以防止下载一堆版本号不同的相同库）单独安装pytorch-lightning：
   
