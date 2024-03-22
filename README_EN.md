@@ -29,7 +29,7 @@ __This project has plans to integrate with the [openai/whisper](https://github.c
   conda activate SOFA_AI
   ```
 
-- Visit the [Pytorch official website](www.pytorch.org) and download torch for your device.
+- Visit the [Pytorch official website](http://www.pytorch.org) and download torch for your device.
 
 - (Optional, to avoid downloading multiple versions of the same library) Install pytorch-lightning separately:
   
