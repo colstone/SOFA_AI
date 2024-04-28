@@ -11,6 +11,9 @@
 SOFA_AI（Singing-Oriented Forced Aligner for Automatic Inference）是利用[FunASR](https://github.com/alibaba-damo-academy/FunASR)和[SOFA](https://github.com/qiuqiao/SOFA)，以达到目标干声在无歌词标注或者无语音转写标注的情况下，直接获取目标干声音素级别标注的任务。__此工具能一定程度上优化DiffSinger的音素标注流程，减轻一定的音素标注压力。__
 
 __注意：__
+__使用sofa_ai推理的音素标注，请务必使用Praat/Vlabeler等工具进行标注检查。如果不进行标注检查，以此带来歌声合成模型（svs model）或者语音合成模型（tts model）出现发音不清等一系列原因，均与本仓库无关！__
+
+#__请务必看完整个readme文件！__
 
 __目前的代码由ChatGPT-4辅助提供以及改正，可能会存在潜在的Bug，且会存在潜在的识别错误。如果发现任何问题，欢迎提出issue。__
 
