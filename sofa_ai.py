@@ -12,6 +12,7 @@ sofa_model_path = input("请输入SOFA模型路径: ")
 dictionary_path = input("请输入词典路径: ")
 annotation_format = input("请输入音素标注格式（TextGrid或HTK lab）: ")
 language = input("请输入语言（中文或英文）: ")
+print(language)
 
 # 确定是单个文件还是文件夹
 if os.path.isfile(wav_path):
@@ -25,20 +26,21 @@ elif os.path.isdir(wav_path):
 # 加载FunASR模型
 #model = AutoModel(model="paraformer-zh", vad_model="fsmn-vad", punc_model="ct-punc")
 #model = AutoModel(model="paraformer-zh", vad_model="fsmn-vad") # 中文funasr模型
-if language == "Chinese" or "中文" or "CHN" or "Madarin":
+if language == "中文":
     model = AutoModel(model="paraformer-zh", vad_model="fsmn-vad") # 中文funasr模型
-elif language == "English" or "英文" or "ENG" or "English": # 英文funasr模型，如果需要英文识别的话
-    model = AutoModel(model="paraformer-en") # 英文funasr模型，如果需要英文识别的话
-print(f"已加载FunASR权重：{model}")
+elif language == "英文": # 英文funasr模型，如果需要英文识别的话
+    model = AutoModel(model="paraformer-en", vad_model="fsmn-vad") # 英文funasr模型，如果需要英文识别的话
+print(f"已加载FunASR权重")
 
 # 创建输出文件夹
-if language == "Chinese" or "中文" or "CHN" or "Madarin": # 中文模式下，创建两个文件夹：characters和pinyin。
+if language == "中文": # 中文模式下，创建两个文件夹：characters和pinyin。
     character_dir = Path("characters")
     character_dir.mkdir(exist_ok=True)
     pinyin_dir = Path("pinyin")
     pinyin_dir.mkdir(exist_ok=True)
-elif language == "English" or "英文" or "ENG" or "English": # 英文模式下，只创建一个文件夹：characters。
+elif language == "英文": # 英文模式下，只创建一个文件夹：characters。
     character_dir = Path("characters") # 英文模式下，只创建一个文件夹：characters。
+    character_dir.mkdir(exist_ok=True)
 
 # 对每个wav文件处理
 for wav_file in wav_files:
@@ -51,10 +53,10 @@ for wav_file in wav_files:
     # 过滤获取汉字，这里使用修改后的full_text变量
     # 英文模式下，请注释掉"characters = re.sub(r'[a-zA-Z\s]', '', full_text)"这一行，并取消注释"characters = full_text"这一行。
     #characters = re.sub(r'[a-zA-Z\s]', '', full_text)
-    if language == "Chinese" or "中文" or "CHN" or "Madarin": # 中文模式下，创建两个文件夹：characters和pinyin。
+    if language == "中文": # 中文模式下，创建两个文件夹：characters和pinyin。
         characters = re.sub(r'[a-zA-Z\s]', '', full_text) 
         lab_file_name = Path(wav_file).stem + ".lab"
-    elif language == "English" or "英文" or "ENG" or "English": # 英文模式下，只创建一个文件夹：characters。
+    elif language == "英文": # 英文模式下，只创建一个文件夹：characters。
         characters = full_text  # 英文模式下，请取消注释这一行。
         lab_file_name = Path(wav_file).stem + ".lab"
     
@@ -64,21 +66,21 @@ for wav_file in wav_files:
     print(f"已保存语音识别结果 | {character_dir / lab_file_name}")
     
     # 转换为拼音并保存
-    if language == "Chinese" or "中文" or "CHN" or "Madarin": 
+    if language == "中文": 
         pinyin_content = ' '.join(pypinyin.lazy_pinyin(characters, style=pypinyin.Style.NORMAL))
         with open(pinyin_dir / lab_file_name, 'w', encoding='utf-8') as f:
             f.write(pinyin_content)
         print(f"已保存拼音 | {pinyin_dir / lab_file_name}")
-    elif language == "English" or "英文" or "ENG" or "English": 
+    elif language == "英文": 
         print("目前为英文模式, 继续推理。") 
 
 # 将pinyin文件复制到wav文件所在目录
-if language == "Chinese" or "中文" or "CHN" or "Madarin": 
+if language == "中文": 
     for pinyin_file in pinyin_dir.iterdir():
         target_path = Path(wav_path) / pinyin_file.name if Path(wav_path).is_dir() else Path(wav_path).parent / pinyin_file.name
         shutil.copy(pinyin_file, target_path)
         print(f"已复制拼音文件到 | {target_path}")
-elif language == "English" or "英文" or "ENG" or "English":
+elif language == "英文":
     for lab_file in character_dir.iterdir(): 
         target_path = Path(wav_path) / lab_file.name if Path(wav_path).is_dir() else Path(wav_path).parent / lab_file.name
         shutil.copy(lab_file, target_path)
@@ -109,3 +111,4 @@ run_sofa_inference(
 )
 
 print("SOFA推理完成，全流程结束。")
+
