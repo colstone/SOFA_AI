@@ -70,6 +70,8 @@ __此项目已有缝合[openai/whisper](https://github.com/openai/whisper)项目
   - __词典路径__：将词典路径拖拽进命令行窗口；
   
   - __音素标注格式（TextGrid或HTK lab）__：输入`textgrid`或者`htk`。
+ 
+  - __语言__: 可以输入中文或英文，以切换所选择的FunASR模型。详细使用方法请查看Release V0.0.2内容。
 
 然后什么都不用管，等代码跑完就行。
 
