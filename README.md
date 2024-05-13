@@ -20,6 +20,9 @@ __目前的代码由ChatGPT-4辅助提供以及改正，可能会存在潜在的
 __此项目已有缝合[openai/whisper](https://github.com/openai/whisper)项目，以及添加ASR与SOFA结合的置信度的想法，敬请期待。__
 
 ---
+来点大家想看的东西：
+![image text](https://github.com/colstone/SOFA_AI/blob/main/some_of_closevpi/_S8W(1E3_4HO(J%5DCXS7O%5BLO.jpg "倒逼closevpi改进lyricFA未免不是一件好事，就是yq之神这个b态度，呃呃")
+---
 
 ## 使用方法
 
