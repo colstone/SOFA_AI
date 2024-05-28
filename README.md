@@ -5,7 +5,7 @@
 [English](https://github.com/colstone/SOFA_AI/blob/main/README_EN.md) | 简体中文
 
 ---
-禁止openvpi之所有成员使用本仓库，反正没求着贵组织使用哈。
+aoe范围过大，特此声明，禁止开源组织openvpi之yq之神和KakaruHayate使用本仓库，反正没求着贵组织之提到的人使用哈。
 ---
 ## 介绍
 
