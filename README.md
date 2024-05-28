@@ -5,7 +5,8 @@
 [English](https://github.com/colstone/SOFA_AI/blob/main/README_EN.md) | 简体中文
 
 ---
-
+禁止openvpi之所有成员使用本仓库
+---
 ## 介绍
 
 SOFA_AI（Singing-Oriented Forced Aligner for Automatic Inference）是利用[FunASR](https://github.com/alibaba-damo-academy/FunASR)和[SOFA](https://github.com/qiuqiao/SOFA)，以达到目标干声在无歌词标注或者无语音转写标注的情况下，直接获取目标干声音素级别标注的任务。__此工具能一定程度上优化DiffSinger的音素标注流程，减轻一定的音素标注压力。__
